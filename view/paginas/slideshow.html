@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Automático</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+        }
+
+        .slideshow-container {
+            max-width: 80%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #000;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Efeito de fade entre as imagens */
+        .fade {
+            animation: fade 1s ease;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem1.jpg" alt="Imagem 1">
+        </div>
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem2.jpg" alt="Imagem 2">
+        </div>
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem3.jpg" alt="Imagem 3">
+        </div>
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem4.jpg" alt="Imagem 4">
+        </div>
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem5.jpg" alt="Imagem 5">
+        </div>
+        <div class="slide fade">
+            <img src="C:\Users\gix\.vscode\atv-front-end\atv-front-end\imagem6.jpg" alt="Imagem 6">
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+
+            // Oculta todas as imagens
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Incrementa o índice do slide
+            slideIndex++;
+
+            // Se o índice exceder o número de slides, reinicia para o primeiro
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Mostra o slide atual
+            slides[slideIndex - 1].style.display = "block";
+
+            // Chama a função novamente após 3 segundos
+            setTimeout(showSlides, 3000); // Tempo de exibição de cada slide
+        }
+
+        // Inicia o slideshow
+        showSlides();
+    </script>
+
+</body>
+</html>
